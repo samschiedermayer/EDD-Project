@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class' : 'Runner.java'
+        )
+    }
+}
+
+group 'schiedermayer.com'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    
+    implementation "com.google.zxing:core:3.3.0"
+    implementation "com.google.zxing:javase:3.3.0"
+    implementation "org.bytedeco:javacv-platform:1.4.4"
+    implementation "com.google.firebase:firebase-admin:6.3.0"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
